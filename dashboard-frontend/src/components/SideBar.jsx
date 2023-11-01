@@ -21,7 +21,12 @@ const SideBar = ({ salesArray, selectedDates }) => {
   }
 
   return (
-    <VStack minW="300px" height="100%" gap="20px">
+    <VStack
+      minW="300px"
+      height="100%"
+      gap="20px"
+      justifyContent="space-between"
+    >
       <HStack width="100%" justifyContent="space-around">
         <Button
           colorScheme="orange"
@@ -39,7 +44,11 @@ const SideBar = ({ salesArray, selectedDates }) => {
         height="100%"
         bg={bg}
         borderRadius="20px"
-        justifyContent="space-around"
+        justifyContent="space-between"
+        gap="20px"
+        padding="20px"
+        overflowY="auto"
+        overflowX="hidden"
       >
         <SideBarChart
           salesArray={salesArray}

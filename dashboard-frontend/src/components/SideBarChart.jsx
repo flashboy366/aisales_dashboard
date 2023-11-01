@@ -31,40 +31,38 @@ const SideBarChart = ({
   const tooltipFormatter = (value) => [`${value} ${valuePostfix}`, ""]
 
   return (
-    <VStack gap="12px" height="25%">
+    <VStack gap="12px">
       <Text color={graphLabelColor}>{label}</Text>
       <Box marginRight="50px" height="100%">
-        <ResponsiveContainer height="100%" width={230}>
-          <LineChart data={salesArray}>
-            <CartesianGrid strokeDasharray="1 7" />
-            <XAxis
-              dataKey="date"
-              fontSize="11px"
-              hasTick
-              scale="time"
-              tickFormatter={dateFormatter}
-              type="number"
-              domain={domain}
-            />
-            <YAxis fontSize="11px" width={50} />
-            <Tooltip
-              labelFormatter={dateFormatter}
-              formatter={tooltipFormatter}
-              labelStyle={{ fontSize: "12px" }}
-              contentStyle={{
-                fontSize: "13px",
-                borderWidth: 0,
-                borderRadius: "13px",
-                background: tooltipBgColor,
-                padding: 7,
-              }}
-              itemStyle={{ color: tooltipItemColor }}
-              allowEscapeViewBox={{ y: true }}
-              separator=""
-            />
-            <Line dataKey={dataKey} fill="#8884d8" />
-          </LineChart>
-        </ResponsiveContainer>
+        <LineChart data={salesArray} height={210} width={230}>
+          <CartesianGrid strokeDasharray="1 7" />
+          <XAxis
+            dataKey="date"
+            fontSize="11px"
+            hasTick
+            scale="time"
+            tickFormatter={dateFormatter}
+            type="number"
+            domain={domain}
+          />
+          <YAxis fontSize="11px" width={50} />
+          <Tooltip
+            labelFormatter={dateFormatter}
+            formatter={tooltipFormatter}
+            labelStyle={{ fontSize: "12px" }}
+            contentStyle={{
+              fontSize: "13px",
+              borderWidth: 0,
+              borderRadius: "13px",
+              background: tooltipBgColor,
+              padding: 7,
+            }}
+            itemStyle={{ color: tooltipItemColor }}
+            allowEscapeViewBox={{ y: true }}
+            separator=""
+          />
+          <Line dataKey={dataKey} fill="#8884d8" />
+        </LineChart>
       </Box>
     </VStack>
   )
